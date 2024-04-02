@@ -4,7 +4,7 @@ import smtplib
 app = Flask(__name__)
 
 server = smtplib.SMTP(host='smtp.gmail.com',port=587)
-cluster = MongoClient('mongodb://127.0.0.1:27017')
+cluster = MongoClient('mongodb+srv://jayasrimandava2:jaya@cluster0.vf0ghjh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
 app.secret_key = "ejfhjk$%^&*9fvbijh"
 db = cluster['ysjk']
