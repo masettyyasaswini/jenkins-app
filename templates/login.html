@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-image: url('/static/bg_img.jpg');
+            background-size: contain;
+            background-position: center;
+            display: flex;
+            height: 50vh;
+            align-items: center;
+        }
+
+        .container {
+            width: 25rem;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        input,
+        button {
+            height: 4.0625rem;
+            border-radius: 0.3125rem;
+            padding: 0 1.25rem;
+            font-size: 1.2rem;
+            border: 0;
+        }
+
+        input {
+            background: #80daf8;
+            margin-bottom: 0.125rem;
+        }
+
+        button {
+            margin: 1.25rem 0;
+            background: green;
+            color: white;
+        }
+
+        button:hover {
+            background: green;
+            color: whitesmoke;
+        }
+
+        a {
+            margin: 1.25rem auto;
+            font-family: 'roboto', sans-serif;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="/login" method="post" >
+
+            <input type="email" placeholder="Email" name="email" required/><br/>
+
+            <button type="submit" style="width: 250px;">Sign In</button><br>
+
+
+        </form>
+    </div>
+</body>
+
+</html>

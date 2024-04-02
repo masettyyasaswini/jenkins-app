@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Select Boxes</title>
+<style>
+/* Add your custom styles here */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+</style>
+</head>
+<body>
+
+<h2>Select your beauty service:</h2>
+<select id="serviceSelect">
+  <option value="">Select a service</option>
+  <option value="hair">Hair</option>
+  <option value="nails">Nails</option>
+  <option value="skin">Skin</option>
+</select>
+
+<h2>Select a product:</h2>
+<select id="productSelect">
+  <option value="">Select a product</option>
+</select>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const serviceSelect = document.getElementById('serviceSelect');
+  const productSelect = document.getElementById('productSelect');
+  
+  // Define products for each service
+  const products = {
+    hair: ['Shampoo', 'Conditioner', 'Hair Oil'],
+    nails: ['Nail Polish', 'Nail File', 'Cuticle Oil'],
+    skin: ['Moisturizer', 'Cleanser', 'Sunscreen']
+  };
+
+  // Function to populate product select box based on service selection
+  function populateProducts(service) {
+    productSelect.innerHTML = ''; // Clear previous options
+
+    if (service) {
+      const serviceProducts = products[service];
+      serviceProducts.forEach(function(product) {
+        const option = document.createElement('option');
+        option.text = product;
+        option.value = product.toLowerCase().replace(/\s+/g, ''); // Remove spaces
+        productSelect.add(option);
+      });
+    }
+  }
+
+  // Event listener to detect changes in service selection
+  serviceSelect.addEventListener('change', function() {
+    const selectedService = serviceSelect.value;
+    populateProducts(selectedService);
+  });
+});
+</script>
+</body>
+</html>
